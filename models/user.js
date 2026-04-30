@@ -1,50 +1,48 @@
 import mongoose from "mongoose";
 
-const addressSchema = mongoose.Schema({
-    fullName:String,
-    phone:String,
-    street:String,
-    city:String,
-    state:String,
-    postalCode:String
-})
-
 const userSchema = mongoose.Schema(
     {
-        name:{
-            type:String,
-            required:true
+        name: {
+            type: String,
+            required: true
         },
-        email:{
-            type:String,
-            required:true
+        email: {
+            type: String,
+            required: true
         },
-        password:{
-            type:String,
-            required:true
+        password: {
+            type: String,
+            required: true,
+            minlength: 6
+        },
+        phone: {
+            type: String,
+            required: true,
+            match: [/^[0-9]{10}$/, "Invalid phone number"]
+        },
+        role: {
+            type: String,
+            enum: ["user", "admin", "guest"],
+            default: "user"
+
         },
 
-        phoneNo:{
-            type:String
-
+        address: {
+            street: { type: String, trim: true },
+            city: { type: String, trim: true },
+            pincode: { type: String }
         },
-        role:{
-            type:String,
-            enum:["user","admin"],
-            default:"user"
 
-        },
-        addresses:[addressSchema],
-        
-        isActive:{
-            type:Boolean,
-            default:true
+
+        isActive: {
+            type: Boolean,
+            default: true
         }
-    },
-    {timestamps:true}
+    }
+
 
 )
 
 
-export const userModel = mongoose.model("Users",userSchema)
+export const userModel = mongoose.model("Users", userSchema)
 

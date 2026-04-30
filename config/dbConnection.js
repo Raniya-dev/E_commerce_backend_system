@@ -1,9 +1,14 @@
 import mongoose from 'mongoose'
+import { configDotenv } from 'dotenv';
+
+configDotenv()
 
 const ConnectDB = async ()=>{
     try {
-        await mongoose.connect("mongodb://localhost:27017/ecommerceDB")
+        await mongoose.connect(process.env.CONNECTION_DB)
         console.log("DB connected!");
+        console.log("hi");
+        
 
         
     } catch (error) {
