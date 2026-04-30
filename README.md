@@ -1,15 +1,24 @@
 🛒 E-Commerce Backend API (Node.js + Express + MongoDB)
+
+
 📌 Project Overview
 This project is a complete backend system for an e-commerce application. It includes authentication, role-based access control, product management, order management, and a recommendation system.
 
+
+
 🚀 Features
+
 🔐 Authentication
 User Registration
 User Login (JWT-based authentication)
 Password hashing using bcrypt
+
+
 👤 User Profile
 Get Profile
 Update Profile
+
+
 🛍️ Product Management
 Create Product (Admin only)
 Get All Products
@@ -17,27 +26,37 @@ Get Single Product
 Update Product (Admin only)
 Delete Product (Admin only)
 Filter & Search Products
+
+
 📦 Order Management
 Create Order
 Get My Orders
 Get All Orders (Admin only)
 Update Order Status (Admin only)
+
+
 🤖 Recommendation System
 Suggest products based on user order history
 Uses category-based filtering
 Fallback to random products if no order history
+
+
 🧠 Technologies Used
 Node.js
 Express.js
 MongoDB (Mongoose)
 JWT (Authentication)
 bcryptjs (Password hashing)
+
+
 🔑 Authentication Flow
 Register user
 Login user
 Receive JWT token
 Use token in headers:
 Authorization: Bearer <token>
+
+
 🧱 Project Structure
 project/
 │
@@ -47,13 +66,18 @@ project/
 ├── middlewares/
 ├── config/
 ├── index.js
+
+
 📡 API Endpoints
+
 🔐 Auth
 POST /register
 POST /login
+
 👤 User
 GET /user/profile
 PUT /user/profile
+
 🛍️ Products
 GET /products
 GET /products/:id
@@ -61,23 +85,29 @@ POST /products (Admin)
 PUT /products/:id (Admin)
 DELETE /products/:id (Admin)
 GET /products/filter/search
+
 📦 Orders
 POST /order
 GET /order/my
 GET /order (Admin)
 PUT /order/:id (Admin)
+
 🤖 Recommendation
 GET /analytics/recommendation
+
 🛡️ Middleware
 authMiddleware → verifies JWT
 roleMiddleware → restricts access by role
+
 🧠 Recommendation Logic
 Fetch user orders
 Extract product categories
 Find similar category products
 Remove duplicates
 Limit results
+
 ⚙️ Setup Instructions
+
 Clone the repository
 Install dependencies:
 npm install
