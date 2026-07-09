@@ -1,133 +1,217 @@
-🛒 E-Commerce Backend API (Node.js + Express + MongoDB)
 
+# MERN E-Commerce Backend
 
-📌 Project Overview
-This project is a complete backend system for an e-commerce application. It includes authentication, role-based access control, product management, order management, and a recommendation system.
+RESTful backend developed using Node.js, Express.js, MongoDB, and JWT Authentication for the MERN E-Commerce Application.
 
+---
 
+## Features
 
-🚀 Features
+- JWT Authentication
+- Password Encryption using bcrypt
+- Role-Based Authorization
+- Product CRUD APIs
+- User Profile APIs
+- Shopping Cart APIs
+- Order APIs
+- Search Products
+- Filter Products
+- Sort Products
+- MongoDB Database
+- Import Products from FakeStore API
 
-🔐 Authentication
-User Registration
-User Login (JWT-based authentication)
-Password hashing using bcrypt
+---
 
+## Technologies Used
 
-👤 User Profile
-Get Profile
-Update Profile
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT
+- bcrypt
+- Axios
+- dotenv
+- CORS
 
+---
 
-🛍️ Product Management
-Create Product (Admin only)
-Get All Products
-Get Single Product
-Update Product (Admin only)
-Delete Product (Admin only)
-Filter & Search Products
+## Folder Structure
 
-
-📦 Order Management
-Create Order
-Get My Orders
-Get All Orders (Admin only)
-Update Order Status (Admin only)
-
-
-🤖 Recommendation System
-Suggest products based on user order history
-Uses category-based filtering
-Fallback to random products if no order history
-
-
-🧠 Technologies Used
-Node.js
-Express.js
-MongoDB (Mongoose)
-JWT (Authentication)
-bcryptjs (Password hashing)
-
-
-🔑 Authentication Flow
-Register user
-Login user
-Receive JWT token
-Use token in headers:
-Authorization: Bearer <token>
-
-
-🧱 Project Structure
-project/
+```
+Backend
 │
 ├── controllers/
+├── middleware/
 ├── models/
 ├── routes/
-├── middlewares/
 ├── config/
-├── index.js
+├── server.js
+└── package.json
+```
 
+---
 
-📡 API Endpoints
+## Installation
 
-🔐 Auth
-POST /register
-POST /login
+### Clone Repository
 
-👤 User
-GET /user/profile
-PUT /user/profile
+```bash
+git clone https://github.com/Raniya-dev/E_commerce_backend_assignment.git
+```
 
-🛍️ Products
-GET /products
-GET /products/:id
-POST /products (Admin)
-PUT /products/:id (Admin)
-DELETE /products/:id (Admin)
-GET /products/filter/search
+### Install Packages
 
-📦 Orders
-POST /order
-GET /order/my
-GET /order (Admin)
-PUT /order/:id (Admin)
-
-🤖 Recommendation
-GET /analytics/recommendation
-
-🛡️ Middleware
-authMiddleware → verifies JWT
-roleMiddleware → restricts access by role
-
-🧠 Recommendation Logic
-Fetch user orders
-Extract product categories
-Find similar category products
-Remove duplicates
-Limit results
-
-⚙️ Setup Instructions
-
-Clone the repository
-Install dependencies:
+```bash
 npm install
-Create .env file:
+```
+
+---
+
+## Environment Variables
+
+Create a `.env` file.
+
+```env
 PORT=5000
-MONGO_URI=your_mongodb_uri
+
+MONGO_URI=your_mongodb_connection
+
 JWT_SECRET=your_secret_key
-Run the server:
+```
+
+---
+
+## Run Server
+
+```bash
 npm run dev
-🧪 Testing
-Use Postman to test APIs:
+```
 
-Register → Login → Copy Token
-Add token in headers
-Test protected routes
-🏆 Conclusion
-This project demonstrates:
+---
 
-Backend architecture
-Authentication & Authorization
-REST API design
-MongoDB operations
-Basic recommendation system
+## API Endpoints
+
+### Authentication
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | /user/signup | Register User |
+| POST | /user/login | Login User |
+
+---
+
+### User Profile
+
+| Method | Endpoint |
+|---------|----------|
+| GET | /user/getprofile |
+| PUT | /user/updateprofile |
+
+---
+
+### Products
+
+| Method | Endpoint |
+|---------|----------|
+| GET | /api/getstoredproducts |
+| GET | /api/getstoredproducts/:id |
+| POST | /api/importproducts |
+
+---
+
+### Cart
+
+| Method | Endpoint |
+|---------|----------|
+| POST | /cart/add |
+| GET | /cart |
+| DELETE | /cart/:id |
+
+---
+
+### Orders
+
+| Method | Endpoint |
+|---------|----------|
+| POST | /orders |
+| GET | /orders/myorders |
+| GET | /orders/all |
+| PUT | /orders/:id |
+
+---
+
+## Authentication
+
+JWT Token is required for:
+
+- Profile
+- Cart
+- Orders
+
+Authorization Header
+
+```
+Bearer <token>
+```
+
+---
+
+## Database
+
+MongoDB Collections
+
+- Users
+- Products
+- Orders
+- Cart
+
+---
+
+## Main Features
+
+### Authentication
+
+- Signup
+- Login
+- Password Hashing
+- JWT Authentication
+
+### Products
+
+- Store Products from FakeStore API
+- Get All Products
+- Get Single Product
+- Search
+- Filter
+- Sort
+
+### Cart
+
+- Add Product
+- Remove Product
+- User-specific Cart
+
+### Orders
+
+- Place Order
+- View Orders
+- Update Order Status
+
+---
+
+## Future Enhancements
+
+- Product Reviews
+- Wishlist
+- Payment Integration
+- Email Notifications
+- Recommendation System using RapidMiner
+
+---
+
+## Author
+
+**Raniya Naser**
+
+MERN Stack Developer
