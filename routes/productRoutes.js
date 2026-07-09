@@ -8,13 +8,18 @@ import {
   getSingleProduct,
   updateProduct,
   filterProduct
+ 
 } from "../controllers/productController.js";
+
+
 
 const productRouter = express.Router()
 
 productRouter.get("/filter", filterProduct)
 productRouter.get("/", getAllProduct)
 productRouter.get("/:productId", getSingleProduct)
+
+
 
 productRouter.post("/", authMiddleware, roleMiddleware("admin"), createProduct)
 productRouter.put("/:productId", authMiddleware, roleMiddleware("admin"), updateProduct)

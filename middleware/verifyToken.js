@@ -22,6 +22,8 @@ export const verifyToken = (req,res,next)=>{
             return res.status(404).json({errMsg:"Forbidden user"})
         }
 
+        console.log(req.user);
+
         console.log("user from token:",user);
         
         req.user = user;

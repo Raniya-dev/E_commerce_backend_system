@@ -11,10 +11,10 @@ userRouter.post('/signup', handleSignup);
 userRouter.post('/login', handleLogin);
 
 
-userRouter.get('/profile', verifyToken,authMiddleware, getProfile);
+userRouter.get('/getprofile', authMiddleware(), getProfile);
 
 
-userRouter.put('/profile', authMiddleware, updateProfile)
+userRouter.put('/updateprofile', authMiddleware(), updateProfile)
 
 
 export default userRouter;

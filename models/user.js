@@ -15,11 +15,7 @@ const userSchema = mongoose.Schema(
             required: true,
             minlength: 6
         },
-        phone: {
-            type: String,
-            required: true,
-            match: [/^[0-9]{10}$/, "Invalid phone number"]
-        },
+       
         role: {
             type: String,
             enum: ["user", "admin", "guest"],

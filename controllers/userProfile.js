@@ -56,7 +56,9 @@ const handleSignup = async (req, res) => {
 //  user login
 const handleLogin = async (req, res) => {
     try {
+        console.log("API reached.");
         const { email, password } = req.body;
+        
 
 
         if (!email || email.trim().length === 0) 
@@ -82,7 +84,7 @@ const handleLogin = async (req, res) => {
             );
 
             return res.status(200).json({ 
-                user: user,
+                user: {name:user.name,email:user.email},
                 token: token, 
                 message: "login success" 
             });
